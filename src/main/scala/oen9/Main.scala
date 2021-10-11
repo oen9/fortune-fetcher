@@ -7,7 +7,7 @@ import io.circe.Codec
 import org.http4s.circe.CirceEntityDecoder.*
 import org.http4s.ember.client.EmberClientBuilder
 
-object Main extends IOApp {
+object Main extends IOApp:
   case class Fortune(fortune: String) derives Codec.AsObject
 
   override def run(args: List[String]): IO[ExitCode] = for {
@@ -22,6 +22,5 @@ object Main extends IOApp {
         _      <- Console[F].println(result.fortune)
       } yield ()
     }
-}
 
 def msg = "I was compiled by Scala 3. :)"
